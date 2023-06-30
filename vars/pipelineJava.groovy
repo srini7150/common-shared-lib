@@ -31,6 +31,18 @@ def call () {
                     }
                 }
             }
+            stage('only_hotfix') {
+                when {
+                    expression {
+                        $BRANCH_NAME =~ /(hotfix.*)/
+                    }
+                }
+                steps{
+                    script {
+                        echo "This branch name is: ${BRANCH_NAME}"
+                    }
+                }
+            }
         }
     }
 }
