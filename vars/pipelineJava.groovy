@@ -3,13 +3,18 @@ def call () {
         agent any
         stages {
             stage('build') {
-                script {
-                    echo "building"
+                steps{
+                    script {
+                        echo "building"
+                    }
                 }
+
             }
             stage('test') {
-                script {
-                    echo "tesing"
+                steps{
+                    script {
+                        echo "testing"
+                    }
                 }
             }
         }
