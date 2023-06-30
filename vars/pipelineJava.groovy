@@ -34,7 +34,7 @@ def call () {
             stage('only_hotfix') {
                 when {
                     expression {
-                        $BRANCH_NAME =~ /(hotfix.*)/
+                        BRANCH_NAME =~ /(hotfix.*)/
                     }
                 }
                 steps{
