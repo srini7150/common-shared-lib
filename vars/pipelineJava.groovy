@@ -6,6 +6,8 @@ def call () {
                 steps{
                     script {
                         echo "building"
+                        echo "Build number is:${BUILD_NUMBER}"
+                        echo "Branch name is: ${BRANCH_NAME}"
                     }
                 }
 
