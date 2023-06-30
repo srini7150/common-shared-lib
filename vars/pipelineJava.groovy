@@ -17,12 +17,17 @@ def call () {
                         echo "DOCKER_USERNAME is: ${DOCKER_CREDS_PSW}"
                     }
                 }
-
             }
             stage('test') {
+                agent {
+                    docker {
+                        image 'node:16-alpine'
+                    }
+                }
                 steps{
                     script {
                         echo "testing"
+                        sh 'node --version'
                     }
                 }
             }
