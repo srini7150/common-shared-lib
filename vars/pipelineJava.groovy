@@ -2,7 +2,6 @@ def call () {
     pipeline {
         agent any
         environment {
-            VERSION = "23.4.0"
             DOCKER_CREDS = credentials('docker-hub')
         }
         stages {
@@ -12,7 +11,8 @@ def call () {
                         echo "building"
                         echo "Build number is:${BUILD_NUMBER}"
                         echo "Branch name is: ${BRANCH_NAME}"
-                        echo "VERSION is: ${VERSION}"
+                        def VERSION = readFile('version.counter')
+                        echo "version is: ${VERSION}"
                         echo "DOCKER_USERNAME is: ${DOCKER_CREDS_USR}"
                         echo "DOCKER_USERNAME is: ${DOCKER_CREDS_PSW}"
                     }
