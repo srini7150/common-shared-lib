@@ -8,9 +8,6 @@ def call () {
             stage('build') {
                 steps{
                     script {
-                        echo "building"
-                        echo "Build number is:${BUILD_NUMBER}"
-                        echo "Branch name is: ${BRANCH_NAME}"
                         def version_vars = readProperties  file:'version_vars.properties'
                         def VERSION = version_vars['VERSION']
                         def INT_RELEASE_BUILD_NO = version_vars['initial_release_build_number']
