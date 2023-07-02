@@ -11,8 +11,11 @@ def call () {
                         echo "building"
                         echo "Build number is:${BUILD_NUMBER}"
                         echo "Branch name is: ${BRANCH_NAME}"
-                        def VERSION = readFile('version.counter')
-                        echo "version is: ${VERSION}"
+                        def version_vars = readProperties  file:'version_vars.properties'
+                        def VERSION = version_variables[0]
+                        def INT_RELEASE_BUILD_NO = version_vars[1]
+                        def UNIQUE_VERSION_ID = ${BUILD_NUMBER} - INT_RELEASE_BUILD_NO
+                        echo "version is: ${VERSION}-${UNIQUE_VERSION_ID}"
                         echo "DOCKER_USERNAME is: ${DOCKER_CREDS_USR}"
                         echo "DOCKER_USERNAME is: ${DOCKER_CREDS_PSW}"
                     }
