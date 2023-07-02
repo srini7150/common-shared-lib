@@ -10,6 +10,10 @@ def call () {
             DOCKER_CREDS = credentials('docker-hub')
         }
 
+        options {
+            buildDiscarder (logRotator(numToKeepStr: '5'))
+        }
+
         stages {
             stage('build') {
                 steps{
