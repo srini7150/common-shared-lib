@@ -1,9 +1,15 @@
 def call () {
     pipeline {
         agent any
+
+        parameters {
+            string(name: 'launchTests', defaultValue: 'true', description: 'Launch unit tests? Reply true or false - Mandatory for release branches', trim: true)
+        }
+
         environment {
             DOCKER_CREDS = credentials('docker-hub')
         }
+
         stages {
             stage('build') {
                 steps{
@@ -19,6 +25,9 @@ def call () {
                 }
             }
             stage('test') {
+                when {
+                    expression { params.launchTests == "true" }
+                }
                 agent {
                     docker {
                         image 'node:16-alpine'
