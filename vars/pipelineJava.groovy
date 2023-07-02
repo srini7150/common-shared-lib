@@ -14,7 +14,7 @@ def call () {
                         def version_vars = readProperties  file:'version_vars.properties'
                         def VERSION = version_vars[0]
                         def INT_RELEASE_BUILD_NO = version_vars[1]
-                        def UNIQUE_VERSION_ID = ${BUILD_NUMBER} - INT_RELEASE_BUILD_NO
+                        def UNIQUE_VERSION_ID = BUILD_NUMBER - INT_RELEASE_BUILD_NO
                         echo "version is: ${VERSION}-${UNIQUE_VERSION_ID}"
                         echo "DOCKER_USERNAME is: ${DOCKER_CREDS_USR}"
                         echo "DOCKER_USERNAME is: ${DOCKER_CREDS_PSW}"
