@@ -12,8 +12,8 @@ def call () {
                         echo "Build number is:${BUILD_NUMBER}"
                         echo "Branch name is: ${BRANCH_NAME}"
                         def version_vars = readProperties  file:'version_vars.properties'
-                        def VERSION = version_vars[VERSION]
-                        def INT_RELEASE_BUILD_NO = version_vars[initial_release_build_number]
+                        def VERSION = version_vars['VERSION']
+                        def INT_RELEASE_BUILD_NO = version_vars['initial_release_build_number']
                         def UNIQUE_VERSION_ID = BUILD_NUMBER - INT_RELEASE_BUILD_NO
                         echo "version is: ${VERSION}-${UNIQUE_VERSION_ID}"
                         echo "DOCKER_USERNAME is: ${DOCKER_CREDS_USR}"
