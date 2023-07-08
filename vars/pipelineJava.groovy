@@ -27,9 +27,9 @@ def call (Map pipelineParams) {
                         // echo "DOCKER_USERNAME is: ${DOCKER_CREDS_PSW}"
                         def release_branch = getReleaseBranch()
                         echo "release branch is ${release_branch}"
-                        // def VERSION = godVersion(pipelineParams.module, BRANCH_NAME)
-                        // echo "branch is: ${BRANCH_NAME}"
-                        // echo "version is:${VERSION}"
+                        def VERSION = godVersion(pipelineParams.module, BRANCH_NAME)
+                        echo "branch is: ${BRANCH_NAME}"
+                        echo "version is:${VERSION}"
                     }
                 }
             }
