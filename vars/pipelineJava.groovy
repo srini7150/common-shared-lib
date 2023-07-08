@@ -6,9 +6,9 @@ def call (Map pipelineParams) {
             string(name: 'launchTests', defaultValue: 'true', description: 'Launch unit tests? Reply true or false - Mandatory for release branches', trim: true)
         }
 
-        environment {
-            DOCKER_CREDS = credentials('docker-hub')
-        }
+        // environment {
+        //     DOCKER_CREDS = credentials('docker-hub')
+        // }
 
         options {
             buildDiscarder (logRotator(numToKeepStr: '5'))
