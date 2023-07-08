@@ -37,15 +37,15 @@ def call (Map pipelineParams) {
                 when {
                     expression { params.launchTests == "true" }
                 }
-                agent {
-                    docker {
-                        image 'node:16-alpine'
-                    }
-                }
+                // agent {
+                //     docker {
+                //         image 'node:16-alpine'
+                //     }
+                // }
                 steps{
                     script {
                         echo "testing"
-                        sh 'node --version'
+                        // sh 'node --version'
                     }
                 }
             }
