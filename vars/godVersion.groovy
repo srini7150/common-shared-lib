@@ -10,6 +10,6 @@ def call (String module, String branch) {
         return godUtils.getVersion(getProdVersion(module), branch, releaseBranch); + "-hotfix" + hotfixCount;
     }
     else {
-        return godUtils.getCounterFileContent(module, branch, releaseBranch);
+        return godUtils.getVersion(getCounterFileContent(module), branch, releaseBranch);
     }
 }
