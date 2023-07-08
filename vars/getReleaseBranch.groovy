@@ -1,3 +1,3 @@
 def call() {
-    return LibraryResource("release-branch").trim();
+    return LibraryResource "resources/release-branch";
 }
