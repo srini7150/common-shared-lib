@@ -11,10 +11,18 @@ def call (Map pipelineParams) {
         // }
 
         options {
+            skipDefaultCheckout(true)
             buildDiscarder (logRotator(numToKeepStr: '5'))
         }
 
         stages {
+            stage('Initialization') {
+                steps {
+                    script {
+                        checkoutScm()
+                    }
+                }
+            }
             stage('build') {
                 steps{
                     script {
