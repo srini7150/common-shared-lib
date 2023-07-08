@@ -1,4 +1,4 @@
 def call() {
     deleteDir()
-    checkout scm()
+    checkout scm
 }
