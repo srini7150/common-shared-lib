@@ -1,4 +1,4 @@
-import com.bnp.god.devops.library.godUtils;
+import com.bnp.god.devops.library.GodUtils;
 
 def call (String module, String branch) {
     def releaseBranch = getReleaseBranch();
