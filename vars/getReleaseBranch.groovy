@@ -1,4 +1,4 @@
 def call() {
-    def release-branch = LibraryResource "resources/release-branch";
-    return release-branch
+    def releaseBranch = LibraryResource "resources/release-branch"
+    return releaseBranch
 }
