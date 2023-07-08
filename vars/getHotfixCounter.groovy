@@ -3,5 +3,5 @@ import com.cloudbees.groovy.cps.NonCPS;
 @NonCPS
 def call(String module) {
     def hotfixCounter = module + "/hotfix.counter";
-    return LibraryResource(hotfixCounter).trim();
+    return libraryResource(hotfixCounter).trim();
 }
