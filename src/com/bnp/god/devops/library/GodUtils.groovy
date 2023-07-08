@@ -1,6 +1,6 @@
 package com.bnp.god.devops.library;
 
-class godUtils implements Serializable {
+class GodUtils implements Serializable {
     static final String DOT = ".";
     static final String ONE = ".";
     static final String COMMA = ",";
