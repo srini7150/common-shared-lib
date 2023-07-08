@@ -1,3 +1,4 @@
 def call() {
-    return LibraryResource "resources/release-branch";
+    def release-branch = LibraryResource "resources/release-branch";
+    return release-branch
 }
