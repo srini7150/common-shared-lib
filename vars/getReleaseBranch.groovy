@@ -1,4 +1,6 @@
+import com.cloudbees.groovy.cps.NonCPS;
+
+@NonCPS
 def call() {
-    def releaseBranch = LibraryResource "resources/release-branch"
-    return releaseBranch
+    return libraryResource("release-branch").trim();
 }
