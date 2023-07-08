@@ -29,7 +29,7 @@ def call (Map pipelineParams) {
                         echo "release branch is ${releaseBranch}"
                         // def VERSION = godVersion(pipelineParams.module, BRANCH_NAME)
                         def branch = "${BRANCH_NAME}"
-                        def version = getCounterFileContent(module, branch, releaseBranch)
+                        def version = getCounterFileContent("god", branch, releaseBranch)
                         echo "branch is: ${BRANCH_NAME}"
                         echo "version is:${VERSION}"
                     }
