@@ -25,9 +25,11 @@ def call (Map pipelineParams) {
                         // echo "version is: ${VERSION}-${UNIQUE_VERSION_ID}"
                         // echo "DOCKER_USERNAME is: ${DOCKER_CREDS_USR}"
                         // echo "DOCKER_USERNAME is: ${DOCKER_CREDS_PSW}"
-                        def release_branch = getReleaseBranch()
-                        echo "release branch is ${release_branch}"
-                        def VERSION = godVersion(pipelineParams.module, BRANCH_NAME)
+                        def releaseBranch = getReleaseBranch()
+                        echo "release branch is ${releaseBranch}"
+                        // def VERSION = godVersion(pipelineParams.module, BRANCH_NAME)
+                        def branch = "${BRANCH_NAME}"
+                        def version = getCounterFileContent(module, branch, releaseBranch)
                         echo "branch is: ${BRANCH_NAME}"
                         echo "version is:${VERSION}"
                     }
