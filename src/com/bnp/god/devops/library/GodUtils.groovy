@@ -13,7 +13,7 @@ class GodUtils implements Serializable {
         else if (branch == istBranch) {
             return version + "-SNAPSHOT";
         }
-        else if (branch =~ /(feature.*)/) {
+        else (branch =~ /(feature.*)/) {
             return "1.0.0-SNAPSHOT";
         }
     }
