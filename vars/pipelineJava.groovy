@@ -6,9 +6,9 @@ def call (Map pipelineParams) {
             string(name: 'launchTests', defaultValue: 'true', description: 'Launch unit tests? Reply true or false - Mandatory for release branches', trim: true)
         }
 
-        // environment {
-        //     DOCKER_CREDS = credentials('docker-hub')
-        // }
+        environment {
+            release_branch = getReleaseBranch()
+        }
 
         options {
             skipDefaultCheckout(true)
@@ -26,7 +26,6 @@ def call (Map pipelineParams) {
             stage('build') {
                 steps{
                     script {
-                        def release_branch = getReleaseBranch()
                         echo "release branch is ${release_branch}"
                         def VERSION = godVersion(pipelineParams.module, BRANCH_NAME)
                         echo "branch is: ${BRANCH_NAME}"
