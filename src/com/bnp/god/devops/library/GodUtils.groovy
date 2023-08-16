@@ -7,7 +7,7 @@ class GodUtils implements Serializable {
 
     def getVersion (String version, String branch, String releaseBranch) {
         version = version.trim();
-        if (branch == releaseBranch || branch == 'main' || branch == branch.endsWith("-hotfix")) {
+        if (branch == releaseBranch || branch == 'main' || branch == branch.startsWith("hotfix")) {
             return version;
         }
         else if (branch.startsWith("feature")) {
