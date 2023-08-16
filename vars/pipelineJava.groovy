@@ -53,19 +53,16 @@ def call (Map pipelineParams) {
 
             stage ('auto version increment'){
                 when {
-                    anyOf {
-                        branch "${release_branch}"
+                    expression {
+                        BRANCH_NAME == "${release_branch}"
                     }
                 }
                 steps {
                     script {
-                        if ("${BRANCH_NAME}" == "${release_branch}") {
-                            incrementVersionCounter(pipelineParams.module);
-                        }
+                        incrementVersionCounter(pipelineParams.module);
                     }
                 }
             }
-
 
             stage('only_hotfix') {
                 when {
