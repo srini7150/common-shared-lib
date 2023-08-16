@@ -59,7 +59,7 @@ def call (Map pipelineParams) {
                 }
                 steps {
                     script {
-                        if ("${BRANCH_NAME} == ${release_branch}") {
+                        if ("${BRANCH_NAME}" == "${release_branch}") {
                             incrementVersionCounter(pipelineParams.module);
                         }
                     }
