@@ -11,6 +11,6 @@ def call (String module) {
         writeFile file: 'increment-counter.sh', text: counterscripts
         sh("chmod 755 increment-counter.sh")
         echo "Call increment counter with ${module} and ${nextVersion}"
-        sh("source ./increment-counter.sh && incVer ${module} ${nextVersion}")
+        sh("./increment-counter.sh && incVer ${module} ${nextVersion}")
     }
 }
