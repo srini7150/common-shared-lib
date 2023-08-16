@@ -5,7 +5,7 @@ def call (String module, String branch) {
     GodUtils godUtils = new GodUtils();
     if (branch == "main") {
         return godUtils.getVersion(getProdVersion(module), branch, releaseBranch);
-    } else if (branch.startsWith("hotfix")) {
+    } else if (branch =~ /(hotfix.*)/) {
         def hotfixCount = getHotfixCounter(module);
         return godUtils.getVersion(getProdVersion(module), branch, releaseBranch); + "." + hotfixCount;
     }
