@@ -27,7 +27,7 @@ class GodUtils implements Serializable {
     }
 
     def splitVersion (String version) {
-        String[] ver = New String[3];
+        String[] ver = new String[3];
         ver[0] = version.split("\\.")[0];
         ver[1] = version.split("\\.")[1];
         ver[2] = version.split("\\.")[2];
