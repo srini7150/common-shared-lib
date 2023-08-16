@@ -7,6 +7,7 @@ def call (Map pipelineParams) {
         }
 
         environment {
+            GITHUB_CREDS = ('github-credentials')
             release_branch = getReleaseBranch()
         }
 
