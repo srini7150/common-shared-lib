@@ -57,14 +57,15 @@ def call (Map pipelineParams) {
                         branch "${release_branch}"
                     }
                 }
-            }
-            steps {
-                script {
-                    if ("${BRANCH_NAME} == ${release_branch}") {
-                        incrementVersionCounter(pipelineParams.module);
+                steps {
+                    script {
+                        if ("${BRANCH_NAME} == ${release_branch}") {
+                            incrementVersionCounter(pipelineParams.module);
+                        }
                     }
                 }
             }
+
 
             stage('only_hotfix') {
                 when {
