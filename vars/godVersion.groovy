@@ -7,7 +7,7 @@ def call (String module, String branch) {
         return godUtils.getVersion(getProdVersion(module), branch, releaseBranch);
     } else if (branch =~ /(hotfix.*)/) {
         def hotfixCount = getHotfixCounter(module);
-        return godUtils.getVersion(getProdVersion(module), branch, releaseBranch); + "." + hotfixCount;
+        return godUtils.getVersion(getProdVersion(module), branch, releaseBranch) + "." + hotfixCount;
     }
     else {
         return godUtils.getVersion(getCounterFileContent(module), branch, releaseBranch);
