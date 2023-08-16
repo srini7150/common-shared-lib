@@ -6,6 +6,7 @@ def call (String module) {
         def counterFileValue = getCounterFileContent(module);
         echo "counterFileValue is${counterFileValue}";
         def nextVersion = godUtils.nextVersion(getCounterFileContent(module));
+        echo "nextVersion is ${nextVersion}"
         def counterscripts = libraryResource("scripts/increment-counter.sh")
         writeFile file: 'increment-counter.sh', text: counterscripts
         sh("chmod 755 increment-counter.sh")
