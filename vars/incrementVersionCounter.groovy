@@ -9,8 +9,10 @@ def call (String module) {
         echo "nextVersion is ${nextVersion}"
         def counterscripts = libraryResource("scripts/increment-counter.sh")
         writeFile file: 'increment-counter.sh', text: counterscripts
+        sh ("ls -la")
         sh("chmod 755 increment-counter.sh")
         echo "Call increment counter with ${module} and ${nextVersion}"
-        sh("./increment-counter.sh && incVer ${module} ${nextVersion}")
+        sh ("ls -la")
+        sh("source ./increment-counter.sh && incVer ${module} ${nextVersion}")
     }
 }
