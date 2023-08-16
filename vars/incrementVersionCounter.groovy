@@ -3,6 +3,8 @@ import com.bnp.god.devops.library.GodUtils
 def call (String module) {
     lock("verinc") {
         GodUtils godUtils = new GodUtils();
+        def counterFileValue = getCounterFileContent(module);
+        echo "counterFileValue is${counterFileValue}";
         def nextVersion = godUtils.nextVersion(getCounterFileContent(module));
         def counterscripts = libraryResource("scripts/increment-counter.sh")
         writeFile file: 'increment-counter.sh', text: counterscripts
