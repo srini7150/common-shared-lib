@@ -9,6 +9,6 @@ function currentCommitId() {
     fi
     mkdir $TEMP_FOLDER && cd $TEMP_FOLDER
     git clone https://$GITLAB_HOST
-    CURRENT_COMMIT_ID=$(cd $REPO_NAME && git checkout $BRANCH_NAME && git log --oneline -n 1 | awk 'print $1')
+    CURRENT_COMMIT_ID=$(cd $REPO_NAME && git checkout $BRANCH_NAME && git log --oneline -n 1 | awk '{print $1}')
     echo "$CURRENT_COMMIT_ID"
 }
