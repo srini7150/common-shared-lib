@@ -8,6 +8,6 @@ def call (String module, String branchName) {
     writeFile file: "currentCommitId.sh", text: commitidScript
     def REPO_NAME = RepoName["${module}"]
     sh("ls && chmod 755 currentCommitId.sh")
-    def currentCommit = sh(returnStdout: true, script: "source ./currentCommitId.sh && currentCommitId ${REPO_NAME} ${gitlabhost} ${branchName}").trim()
+    def currentCommit = sh(returnStdout: true, script: "./currentCommitId.sh && currentCommitId ${REPO_NAME} ${gitlabhost} ${branchName}").trim()
     return "${currentCommit}"
 }
