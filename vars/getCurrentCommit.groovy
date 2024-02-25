@@ -3,7 +3,7 @@ def call (String module, String branchName) {
         "webapp": "webapp",
         "ansible": "ansible"
     ]
-    gitlabhost = "github.com/srini7150/webapp.git"
+    gitlabhost = "https://github.com/srini7150/webapp.git"
     def commitidScript = libraryResource("scripts/currentCommit.sh")
     writeFile file: "currentCommitId.sh", text: commitidScript
     def REPO_NAME = RepoName["${module}"]
